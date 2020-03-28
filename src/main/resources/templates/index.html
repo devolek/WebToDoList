@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>To Do List</title>
+    <script src="/js/jquery-3.4.0.min.js"></script>
+    <script src="/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<div id="toDo-form">
+    <form>
+        <h2>Добавление дела</h2>
+        <label>Заголовок дела:</label>
+        <input type="text" name="name" value="">
+        <label>Содержание дела:</label>
+        <input type="text" name="content" value="">
+        <hr>
+        <button id="save-toDo">Сохранить</button>
+    </form>
+</div>
+<div id="toDo-change-form">
+
+</div>
+<h1>ToDoList</h1>
+<button id="show-add-toDo-form">Добавить дело</button>
+<br><br>
+<div id="toDo-list">
+    <div th:each="toDo : ${toDoList}">
+        <a href="#" class="toDo-link" th:attr="data-id=${toDo.id}" th:text="${toDo.name}"></a>
+        <span> </span>
+        <a href="#" class="toDo-delete" th:attr="data-id=${toDo.id}"><font color="red">X</font></a>
+        <span> </span>
+        <a href="#" class="toDo-change" th:attr="data-id=${toDo.id}"><font color="orange">Изменить дело</font></a><br>
+    </div>
+</div>
+
+</body>
+</html>
